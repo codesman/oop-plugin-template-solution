@@ -2,7 +2,7 @@
 
 /**
  * The user interface and activation/deactivation methods for administering
- * the Object Oriented Plugin Template Solution plugin
+ * the HAT Tweets plugin
  *
  * This plugin abstracts WordPress' Settings API to simplify the creation of
  * a settings admin interface.  Read the docblocks for the set_sections() and
@@ -19,17 +19,17 @@
  * Network Admin panel.  If you want your plugin to be configurable for each
  * site in a multisite network, you must do the following:
  *
- * + Search admin.php and oop-plugin-template-solution.php
+ * + Search admin.php and hat-tweets.php
  *   for is_multisite() if statements.  Remove the true parts and leave
  *   the false parts.
- * + In oop-plugin-template-solution.php, go to the initialize() method
+ * + In hat-tweets.php, go to the initialize() method
  *   and remove the $wpdb->get_blog_prefix(0) portion of the
  *   $this->table_login assignment.
  *
  * Beyond that, you're advised to leave the rest of this file alone.
  *
- * @package oop-plugin-template-solution
- * @link http://wordpress.org/extend/plugins/oop-plugin-template-solution/
+ * @package hat-tweets
+ * @link http://wordpress.org/extend/plugins/hat-tweets/
  * @license http://www.gnu.org/licenses/gpl-2.0.html GPLv2
  * @author Daniel Convissor <danielc@analysisandsolutions.com>
  * @copyright The Analysis and Solutions Company, 2012
@@ -40,10 +40,10 @@
 
 /**
  * The user interface and activation/deactivation methods for administering
- * the Object Oriented Plugin Template Solution plugin
+ * the HAT Tweets plugin
  *
- * @package oop-plugin-template-solution
- * @link http://wordpress.org/extend/plugins/oop-plugin-template-solution/
+ * @package hat-tweets
+ * @link http://wordpress.org/extend/plugins/hat-tweets/
  * @license http://www.gnu.org/licenses/gpl-2.0.html GPLv2
  * @author Daniel Convissor <danielc@analysisandsolutions.com>
  * @copyright The Analysis and Solutions Company, 2012
@@ -51,7 +51,7 @@
  * This plugin used the Object-Oriented Plugin Template Solution as a skeleton
  * REPLACE_PLUGIN_URI
  */
-class oop_plugin_template_solution_admin extends oop_plugin_template_solution {
+class hat_tweets_admin extends hat_tweets {
 	/**
 	 * The WP privilege level required to use the admin interface
 	 * @var string
@@ -94,11 +94,11 @@ class oop_plugin_template_solution_admin extends oop_plugin_template_solution {
 	 *
 	 * @return void
 	 *
-	 * @uses oop_plugin_template_solution::initialize()  to set the object's
+	 * @uses hat_tweets::initialize()  to set the object's
 	 *	     properties
-	 * @uses oop_plugin_template_solution_admin::set_sections()  to populate the
+	 * @uses hat_tweets_admin::set_sections()  to populate the
 	 *       $sections property
-	 * @uses oop_plugin_template_solution_admin::set_fields()  to populate the
+	 * @uses hat_tweets_admin::set_fields()  to populate the
 	 *       $fields property
 	 */
 	public function __construct() {
@@ -223,7 +223,7 @@ class oop_plugin_template_solution_admin extends oop_plugin_template_solution {
 	 *   method named "section_<sid>()".
 	 *
 	 * @return void
-	 * @uses oop_plugin_template_solution_admin::$sections  to hold the data
+	 * @uses hat_tweets_admin::$sections  to hold the data
 	 */
 	protected function set_sections() {
 		$this->sections = array(
@@ -257,11 +257,11 @@ class oop_plugin_template_solution_admin extends oop_plugin_template_solution {
 	 * + bool1:  description for the button indicating the option is on
 	 *
 	 * WARNING:  Make sure to keep this propety and the
-	 * oop_plugin_template_solution_admin::$options_default
+	 * hat_tweets_admin::$options_default
 	 * property in sync.
 	 *
 	 * @return void
-	 * @uses oop_plugin_template_solution_admin::$fields  to hold the data
+	 * @uses hat_tweets_admin::$fields  to hold the data
 	 */
 	protected function set_fields() {
 		$this->fields = array(
@@ -408,11 +408,11 @@ class oop_plugin_template_solution_admin extends oop_plugin_template_solution {
 	 * The callback for rendering the fields
 	 * @return void
 	 *
-	 * @uses oop_plugin_template_solution_admin::input_int()  for rendering
+	 * @uses hat_tweets_admin::input_int()  for rendering
 	 *       text input boxes for numbers
-	 * @uses oop_plugin_template_solution_admin::input_radio()  for rendering
+	 * @uses hat_tweets_admin::input_radio()  for rendering
 	 *       radio buttons
-	 * @uses oop_plugin_template_solution_admin::input_string()  for rendering
+	 * @uses hat_tweets_admin::input_string()  for rendering
 	 *       text input boxes for strings
 	 */
 	public function __call($name, $params) {

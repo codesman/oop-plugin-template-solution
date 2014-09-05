@@ -1,33 +1,29 @@
 <?php
 
 /**
- * Plugin Name: Object Oriented Plugin Template Solution
+ * Plugin Name: HAT Tweets
  *
  * Description: A well engineered template for creating plugins using
  * object-oriented programming practices.
  *
- * Plugin URI: http://wordpress.org/extend/plugins/oop-plugin-template-solution/
- * Version: 1.1.1
- *         (Remember to change the VERSION constant, below, as well!)
- * Author: Daniel Convissor
+ * Version: 1.1.2
+ * Author: Tom Holland
  * Author URI: http://www.analysisandsolutions.com/
- * License: GPLv2
- * @package oop-plugin-template-solution
+ * @package hat-tweets
  *
  * This plugin used the Object-Oriented Plugin Template Solution as a skeleton
- * REPLACE_PLUGIN_URI
  */
 
 /**
  * The instantiated version of this plugin's class
  */
-$GLOBALS['oop_plugin_template_solution'] = new oop_plugin_template_solution;
+$GLOBALS['hat_tweets'] = new hat_tweets;
 
 /**
- * Object Oriented Plugin Template Solution
+ * HAT Tweets
  *
- * @package oop-plugin-template-solution
- * @link http://wordpress.org/extend/plugins/oop-plugin-template-solution/
+ * @package hat-tweets
+ * @link http://wordpress.org/extend/plugins/hat-tweets/
  * @license http://www.gnu.org/licenses/gpl-2.0.html GPLv2
  * @author Daniel Convissor <danielc@analysisandsolutions.com>
  * @copyright The Analysis and Solutions Company, 2012
@@ -35,27 +31,27 @@ $GLOBALS['oop_plugin_template_solution'] = new oop_plugin_template_solution;
  * This plugin used the Object-Oriented Plugin Template Solution as a skeleton
  * REPLACE_PLUGIN_URI
  */
-class oop_plugin_template_solution {
+class hat_tweets {
 	/**
 	 * This plugin's identifier
 	 */
-	const ID = 'oop-plugin-template-solution';
+	const ID = 'hat-tweets';
 
 	/**
 	 * This plugin's name
 	 */
-	const NAME = 'Object Oriented Plugin Template Solution';
+	const NAME = 'HAT Tweets';
 
 	/**
 	 * This plugin's version
 	 */
-	const VERSION = '1.1.1';
+	const VERSION = '1.1.2';
 
 	/**
 	 * This plugin's table name prefix
 	 * @var string
 	 */
-	protected $prefix = 'oop_plugin_template_solution_';
+	protected $prefix = 'hat_tweets_';
 
 
 	/**
@@ -69,7 +65,7 @@ class oop_plugin_template_solution {
 	 *
 	 * Options from the database are merged on top of the default options.
 	 *
-	 * @see oop_plugin_template_solution::set_options()  to obtain the saved
+	 * @see hat_tweets::set_options()  to obtain the saved
 	 *      settings
 	 * @var array
 	 */
@@ -83,7 +79,7 @@ class oop_plugin_template_solution {
 		'deactivate_deletes_data' => 1,
 		'example_int' => 5,
 		'example_string' => '',
-		'track_logins' => 1,
+		'track_logins' => 0,
 	);
 
 	/**
@@ -109,7 +105,7 @@ class oop_plugin_template_solution {
 	 * Declares the WordPress action and filter callbacks
 	 *
 	 * @return void
-	 * @uses oop_plugin_template_solution::initialize()  to set the object's
+	 * @uses hat_tweets::initialize()  to set the object's
 	 *       properties
 	 */
 	public function __construct() {
@@ -123,16 +119,16 @@ class oop_plugin_template_solution {
 			$this->load_plugin_textdomain();
 
 			require_once dirname(__FILE__) . '/admin.php';
-			$admin = new oop_plugin_template_solution_admin;
+			$admin = new hat_tweets_admin;
 
 			if (is_multisite()) {
 				$admin_menu = 'network_admin_menu';
 				$admin_notices = 'network_admin_notices';
-				$plugin_action_links = 'network_admin_plugin_action_links_oop-plugin-template-solution/oop-plugin-template-solution.php';
+				$plugin_action_links = 'network_admin_plugin_action_links_hat-tweets/hat-tweets.php';
 			} else {
 				$admin_menu = 'admin_menu';
 				$admin_notices = 'admin_notices';
-				$plugin_action_links = 'plugin_action_links_oop-plugin-template-solution/oop-plugin-template-solution.php';
+				$plugin_action_links = 'plugin_action_links_hat-tweets/hat-tweets.php';
 			}
 
 			add_action($admin_menu, array(&$admin, 'admin_menu'));
@@ -156,7 +152,7 @@ class oop_plugin_template_solution {
 	 *
 	 * @return void
 	 *
-	 * @uses oop_plugin_template_solution::set_options()  to replace the default
+	 * @uses hat_tweets::set_options()  to replace the default
 	 *       options with those stored in the database
 	 */
 	protected function initialize() {
